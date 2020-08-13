@@ -1,0 +1,13 @@
+<h1>Buscar empleados por trabajo</h1>
+<form method="GET">{% csrf_token %}
+    <input type="text" id="jkey" name="jkey" placeholder="Ingrese trabajo aqui">
+    <button type="submit">Buscar</button>
+</form>
+<h3>Lista resultados</h3>
+<ul>
+    
+    {% for e in empleados %}
+        <li>{{ e }}</li>
+    {% endfor %}
+        
+</ul>

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block tittle %}
+    Registrar Departamento
+{% endblock tittle %}
+
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x">
+<!-- Inicio formularios empleado -->
+        <form class="cell grid-x grid-margin-x callout" method="POST" style="margin-top: 15px;">{% csrf_token %}   
+            <h1 class="cell">Registrar Empleado</h1>         
+            <div class="medium-6 cell">
+                <label>Nombres:
+                  {{ form.nombre }}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>Apellidos:
+                  {{ form.apellido }}
+                </label>
+            </div>
+<!-- Inicio formularios departamento -->
+            <h1 class="cell">Registrar Departamento</h1>
+            <div class="medium-6 cell">
+                <label>Departamento:
+                {{ form.departamento }}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>Nombre corto:
+                {{ form.shorname }}
+                </label>
+            </div>
+            <div class="medium-12 cell">
+                <button class="button" type="submit">Agregar</button>
+            </div>
+        </form>
+<!-- finaliza formularios -->
+    </div>
+</div>
+  
+
+{% endblock content %}
+
+<h1>Nuevo Departamento</h1>
+
+<form action="" method="post">{% csrf_token %}
+    <h3>Datos de empleado</h3>
+    <p>
+        Nombre: {{ form.nombre }}
+    </p>
+    <p>
+        Apellido: {{ form.apellido }}
+    </p>
+    <h3>Datos de departamento</h3>
+    <p>
+       Departamento: {{ form.departamento }}
+    </p>
+    <p>
+       Nombre corto: {{ form.shorname }}
+    </p>
+    <button type="submit">Agregar</button>
+</form>

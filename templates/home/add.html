@@ -1,0 +1,6 @@
+<h1>Probando CreateView</h1>
+
+<form method="POST">{% csrf_token %}
+    <p>{{ form.as_p }}</p>
+    <button type="submit">Agregar</button>
+</form>

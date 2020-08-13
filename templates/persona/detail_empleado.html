@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block tittle %}
+    {{ object.full_name }}
+{% endblock tittle %}
+    
+{% block content %}
+    
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    
+    <div class="grid-x">
+        <div class="cell">
+            <h3>Detalle de empleado</h3>
+        </div>
+            <div class="cell-6 callout secondary">
+                <h4>
+                    {{ empleado.full_name }}
+                </h4>
+            </div>
+        <div class="cell">
+            <h3>Datos</h3>
+        </div>
+        <div class="cell grid-x grid-margin-x callout primary align-center-middle">
+            <table class="medium-6 cell hover align-self-middle">
+                <tr>
+                    <th width="20">Apellidos:</th>
+                    <td>{{ empleado.last_name }}</td>
+                </tr>
+                <tr>
+                    <th width="20">Nombres:</th>
+                    <td>{{ empleado.first_name }}</td>
+                </tr>
+                <tr>
+                    <th width="20">Trabajo:</th>
+                    <td>{{ empleado.job }}</td>
+                </tr>
+                <tr>
+                    <th width="20">Departamento:</th>
+                    <td>{{ empleado.departamento.name }}</td>
+                </tr>
+                <tr>
+                    <th width="20" style="vertical-align: 10px;">Habilidades:</th>
+                    <td>
+                        <ul class="vertical menu">
+                            {% for h in empleado.habilidades.all %}
+
+                            <li>{{ h.habilidad }}</li>
+                                
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            {% if empleado.avatar %}
+            <div class="medium-4 cell">
+                <img src="{{ empleado.avatar.url }}">
+            </div>
+            {% else %}
+            <div class="medium-4 cell">
+                <img src="/media/default-avatar.png">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block tittle %}
+    Guardado
+{% endblock tittle %}
+
+
+{% block content %}
+
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x align-center-middle">
+        <div class="medium-6 cell callout success" style="margin-top: 20px;">
+            <h3 class="text-center">Felicidades</h3>
+            <p class="text-center">Se guardó correctamente el empleado.</p>
+            <p class="text-center">En 5 segundos serás redireccionado.</p>
+        </div>
+        <meta http-equiv="refresh" content="5;url={% url 'persona_app:agregar_empleado' %}">
+    </div>
+</div>
+
+  
+
+{% endblock content %}
